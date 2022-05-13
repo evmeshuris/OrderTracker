@@ -26,11 +26,19 @@ namespace OrderTracker.Controllers
       Vendor newVendor = new Vendor(description);
       return RedirectToAction("Index");
     }
+
     [HttpPost("/vendors/delete")]
     public ActionResult DeleteAll()
     {
       Vendor.ClearAll();
       return View();
     }
-  }
+
+    [HttpGet("/vendors/{id}")]
+    public ActionResult Show(int id, Vendor vendor)
+    {
+        return View(Vendor.GetAll().Find(v => v.Id == id));
+    }
+
+    }
 }
