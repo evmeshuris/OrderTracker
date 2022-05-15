@@ -25,11 +25,18 @@ namespace OrderTracker.Controllers
       return RedirectToAction(null, "vendors", new { id = vendorId });
     }
 
-    [HttpPost("/orders/delete")]
-    public ActionResult DeleteAll()
+    [HttpDelete("/orders/delete_vendor_orders/{vendorId}")]
+    public ActionResult Delete_Vendor_Orders(int vendorId)
     {
-      Order.ClearAll();
+      Order.DeleteByVendor(vendorId);
       return View();
     }
-  }
+
+        [HttpDelete("/orders/delete")]
+        public ActionResult DeleteAll()
+        {
+            Order.ClearAll();
+            return View();
+        }
+    }
 }
