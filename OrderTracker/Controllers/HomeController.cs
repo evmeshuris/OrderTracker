@@ -6,12 +6,10 @@ namespace OrderTracker.Controllers
     public class HomeController : Controller
     {
 
-      [HttpGet("/")]
-      public ActionResult Index()
-      {
-            //new Vendor("bingo bongo");
+        [HttpGet("/")]
+        public ActionResult Index()
+        {
             return View();
-            //return RedirectToAction("/vendors");
 
         }
 

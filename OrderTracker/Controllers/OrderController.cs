@@ -3,34 +3,34 @@ using OrderTracker.Models;
 
 namespace OrderTracker.Controllers
 {
-  public class OrdersController : Controller
-  {
-
-    [HttpGet("/orders")]
-    public ActionResult Index()
+    public class OrdersController : Controller
     {
-      return View(Order.GetAll());
-    }
 
-    [HttpGet("/orders/new/{vendorId}")]
-    public ActionResult CreateForm(int vendorId)
-    {
-      return View(vendorId);
-    }
+        [HttpGet("/orders")]
+        public ActionResult Index()
+        {
+            return View(Order.GetAll());
+        }
 
-    [HttpPost("/orders")]
-    public ActionResult Create(int vendorId, string description, int price)
-    {
-      new Order(vendorId, description, price);
-      return RedirectToAction(null, "vendors", new { id = vendorId });
-    }
+        [HttpGet("/orders/new/{vendorId}")]
+        public ActionResult CreateForm(int vendorId)
+        {
+            return View(vendorId);
+        }
 
-    [HttpDelete("/orders/delete_vendor_orders/{vendorId}")]
-    public ActionResult Delete_Vendor_Orders(int vendorId)
-    {
-      Order.DeleteByVendor(vendorId);
-      return View();
-    }
+        [HttpPost("/orders")]
+        public ActionResult Create(int vendorId, string description, int price)
+        {
+            new Order(vendorId, description, price);
+            return RedirectToAction("show", "vendors", new { id = vendorId });
+        }
+
+        [HttpDelete("/orders/delete_vendor_orders/{vendorId}")]
+        public ActionResult Delete_Vendor_Orders(int vendorId)
+        {
+            Order.DeleteByVendor(vendorId);
+            return View();
+        }
 
         [HttpDelete("/orders/delete")]
         public ActionResult DeleteAll()
