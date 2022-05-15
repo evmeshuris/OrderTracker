@@ -6,14 +6,14 @@
 
 ## Technologies Used
 
-* _C#
-* _HTML
-* _CSS
-* _REPL
-* _.NET
-* _MSTest
-* _MVC
-* _Razor
+* _C#_
+* _HTML_
+* _CSS_
+* _REPL_
+* _.NET_
+* _MSTest_
+* _MVC_
+* _Razor_
 
 ## Description
 
@@ -21,10 +21,10 @@ _This website was made using the ASP.NET MVC standard. This website allows a use
 
 ## Necessary Tools
 
-* _REPL - restart terminal after install
-* _MSTest (optional but needed if you want to run the tests)
-* _.NET (install using "dotnet tool install -g dotnet-script" in console)
-* _Configure Bash environment variables by running "echo 'export PATH=$PATH:~/.dotnet/tools' >> ~/.bash_profile" in your gitbash terminal
+* _REPL - restart terminal after install_
+* _MSTest (optional but needed if you want to run the tests)_
+* _.NET (install using "dotnet tool install -g dotnet-script" in console)_
+* _Configure Bash environment variables by running "echo 'export PATH=$PATH:~/.dotnet/tools' >> ~/.bash_profile" in your gitbash terminal_
 
 
 ## Setup/Installation Requirements
