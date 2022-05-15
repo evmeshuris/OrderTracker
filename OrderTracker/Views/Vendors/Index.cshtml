@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Order Tracker</h1>
+    <h1>Vendor's list</h1>
     @using OrderTracker.Models;
 
     @if (Model.Count == 0)
     {
-        <p>There are no vendors.</p>
+        <p>There are no vendors yet</p>
     }
     <ul>
         @foreach (Vendor vendor in Model)
@@ -20,7 +20,7 @@
         }
     </ul>
 
-    <a href="/vendors/new">Add a new vendor.</a>
+    <a href="/vendors/new">Add a new vendor</a>
 
     <form action="/vendors/delete" method="post">
         <button type="submit" name="button">Clear All Vendors</button>

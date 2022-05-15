@@ -19,14 +19,10 @@
     </ul>
 
     <a href="/orders/new/@Model.Id">Add another order</a>
-    @Html.ActionLink("Delete All Orders", "DeleteVendorOrders", new { id = Model.Id });
-    @*<a href='/orders/@Model.Id'>View all orders</a>*@
-    @*<a href='/vendors/@Model.Id'>View all orders</a>*@
-    <a href='/vendors'>Back to main page</a>
+    </br>
+    @Html.ActionLink("Delete All Orders", "DeleteVendorOrders", new { id = Model.Id })
+    </br>
+    <a href='/vendors'>Back to Vendors page</a>
 
-
-    @*<form action="/vendors/@Model.Id/delete" method="post">
-            <button type="submit" name="button">Clear All Orders</button>
-        </form>*@
 </body>
 </html>
