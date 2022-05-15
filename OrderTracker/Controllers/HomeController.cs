@@ -1,4 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using OrderTracker.Models;
 
 namespace OrderTracker.Controllers
 {
@@ -8,8 +9,11 @@ namespace OrderTracker.Controllers
       [HttpGet("/")]
       public ActionResult Index()
       {
-        return View();
-      }
+            //new Vendor("bingo bongo");
+            return View();
+            //return RedirectToAction("/vendors");
+
+        }
 
     }
 }

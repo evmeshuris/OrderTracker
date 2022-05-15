@@ -12,7 +12,7 @@
 
     @if (vendors.Count == 0)
     {
-        <p>There are no vendors.</p>
+        <p>There are no vendors</p>
     }
     <ul>
         @foreach (Vendor vendor in vendors)
@@ -21,7 +21,7 @@
         }
     </ul>
 
-    <a href="/vendors/new">Add a new vendor.</a>
+    <a href="/vendors/new">Add a new vendor</a>
 
     <form action="/vendors/delete" method="post">
         <button type="submit" name="button">Clear All Vendors</button>

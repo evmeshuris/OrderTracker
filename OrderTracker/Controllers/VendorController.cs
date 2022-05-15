@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OrderTracker.Models;
-using System.Collections.Generic;
 
 namespace OrderTracker.Controllers
 {
@@ -10,8 +9,7 @@ namespace OrderTracker.Controllers
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Vendor> allVendors = Vendor.GetAll();
-      return View(allVendors);
+      return View(Vendor.GetAll());
     }
 
     [HttpGet("/vendors/new")]
@@ -23,7 +21,7 @@ namespace OrderTracker.Controllers
     [HttpPost("/vendors")]
     public ActionResult Create(string description)
     {
-      Vendor newVendor = new Vendor(description);
+      new Vendor(description);
       return RedirectToAction("Index");
     }
 
@@ -35,9 +33,9 @@ namespace OrderTracker.Controllers
     }
 
     [HttpGet("/vendors/{id}")]
-    public ActionResult Show(int id, Vendor vendor)
+        public ActionResult Show(int id)
     {
-        return View(Vendor.GetAll().Find(v => v.Id == id));
+            return View(Vendor.GetAll().Find(v => v.Id == id));
     }
 
     }

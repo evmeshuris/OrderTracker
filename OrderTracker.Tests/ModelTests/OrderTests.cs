@@ -8,6 +8,7 @@ namespace OrderTracker.Tests
   [TestClass]
   public class OrderTests : IDisposable
   {
+        int vendorId = 1;
     public void Dispose()
     {
       Order.ClearAll();
@@ -16,7 +17,7 @@ namespace OrderTracker.Tests
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
       int price01 = 1;
-      Order newOrder = new Order("test vendor", price01);
+      Order newOrder = new Order(vendorId, "test vendor", price01);
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
@@ -25,7 +26,7 @@ namespace OrderTracker.Tests
     {
       string description = "brownie";
       int price01 = 1;
-      Order testOrder = new Order(description, price01);
+      Order testOrder = new Order(vendorId, description, price01);
       string result = testOrder.Description;
 
       Assert.AreEqual(description, result);
@@ -36,7 +37,7 @@ namespace OrderTracker.Tests
     {
       string description = "cookies";
       int price01 = 1;
-      Order newOrder = new Order(description, price01);
+      Order newOrder = new Order(vendorId, description, price01);
       string updatedDescription = "cake";
       newOrder.Description = updatedDescription;
       string result = newOrder.Description;
@@ -56,8 +57,8 @@ namespace OrderTracker.Tests
       string description02 = "cookies";
       int price01 = 1;
       int price02 = 2;
-      Order newOrder01 = new Order(description01, price01);
-      Order newOrder02 = new Order(description02, price02);
+      Order newOrder01 = new Order(vendorId, description01, price01);
+      Order newOrder02 = new Order(vendorId, description02, price02);
       List<Order> newList = new List<Order> { newOrder01, newOrder02 };
       List<Order> result = Order.GetAll();
       CollectionAssert.AreEqual(newList, result);

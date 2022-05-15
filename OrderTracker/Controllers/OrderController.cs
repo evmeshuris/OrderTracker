@@ -1,6 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OrderTracker.Models;
-using System.Collections.Generic;
 
 namespace OrderTracker.Controllers
 {
@@ -10,23 +9,22 @@ namespace OrderTracker.Controllers
     [HttpGet("/orders")]
     public ActionResult Index()
     {
-
-      List<Order> allOrders = Order.GetAll();
-      return View(allOrders);
+      return View(Order.GetAll());
     }
 
-    [HttpGet("/orders/new")]
-    public ActionResult CreateForm()
+    [HttpGet("/orders/new/{vendorId}")]
+    public ActionResult CreateForm(int vendorId)
     {
-      return View();
+      return View(vendorId);
     }
 
     [HttpPost("/orders")]
-    public ActionResult Create(string description, int price)
+    public ActionResult Create(int vendorId, string description, int price)
     {
-      Order newOrder = new Order(description, price);
-      return RedirectToAction("Index");
+      new Order(vendorId, description, price);
+      return RedirectToAction(null, "vendors", new { id = vendorId });
     }
+
     [HttpPost("/orders/delete")]
     public ActionResult DeleteAll()
     {

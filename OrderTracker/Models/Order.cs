@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OrderTracker.Models
 {
@@ -7,13 +7,15 @@ namespace OrderTracker.Models
     public string Description { get; set; }
     public int Price { get; set; }
     public int Id { get; }
+    public int VendorId { get; set; } 
     private static List<Order> _instances = new List<Order> {};
 
-    public Order (string description, int price)
+    public Order (int vendorId, string description, int price)
     {
       Description = description;
       Price = price;
       Id = _instances.Count;
+        VendorId = vendorId;
       _instances.Add(this);
     }
 

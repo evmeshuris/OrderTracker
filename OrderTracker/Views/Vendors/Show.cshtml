@@ -2,17 +2,25 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>My To-Do List!</title>
+    <title>Order Tracker</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
     @using OrderTracker.Models;
-    <h1>To Do List Item Details: </h1>
 
-    <h2>@vendor.VendorName</h2>
+    <h1>Vendor's orders</h1>
 
+    <h2>@Model.VendorName</h2>
+    <ul>
+        @foreach (Order order in Order.GetAll().FindAll(o => o.VendorId == Model.Id))
+        {
+            <li>$@order.Price @order.Description</li>
+        }
+    </ul>
 
-    <a href='/items/new'>Add another item</a>
-    <a href='/items'>View all items</a>
+    <a href="/orders/new/@Model.Id">Add another order</a>
+    @*<a href='/orders/@Model.Id'>View all orders</a>*@
+    @*<a href='/vendors/@Model.Id'>View all orders</a>*@
+    <a href='/vendors'>Back to main page</a>
 </body>
 </html>
